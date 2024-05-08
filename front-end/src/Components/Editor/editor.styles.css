@@ -1,0 +1,19 @@
+.vs-highlight {
+  background-color: hsl(170, 90%, 38%);
+}
+
+.vs-dark-highlight {
+  background-color: hsl(204, 100%, 40%);
+}
+
+.monokai-highlight {
+  background-color: hsl(22, 76%, 50%);
+}
+
+.night-owl-highlight {
+  background-color: hsl(209, 22%, 35%);
+}
+
+.dracula-highlight {
+  background-color: hsl(326, 79%, 66%);
+}
