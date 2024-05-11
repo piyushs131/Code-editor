@@ -51,7 +51,6 @@ const useInitializeApp = () => {
     dispatch(fetchAndUpdateViewsAction());
     removeFromLocalStorage("codeverse-history-info");
     return () => {
-      // clear the local storage when the app is unmounted historyInfo of the files
       removeFromLocalStorage("codeverse-history-info");
     };
   }, [dispatch]);
