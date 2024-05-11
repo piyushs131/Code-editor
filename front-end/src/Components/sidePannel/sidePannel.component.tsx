@@ -38,11 +38,6 @@ const Pannel = () => {
   );
   const isDrawerOpen = useAppSelector((state) => state.sideDrawer.isDrawerOpen);
 
-  /* 
-  this is a handler for the side pannel buttons that open the side drawer and set the content of the side drawer depending on what button was clicked.
-  if same button is clicked twice it will close the side drawer
-  else it will open the side drawer and set the content of the side drawer
-  */
   const showInSideDrawerHandler = (
     event: React.MouseEvent<HTMLButtonElement>
   ) => {
@@ -53,7 +48,6 @@ const Pannel = () => {
       dispatch(setIsDrawerOpen(false));
       return;
     }
-    // otherwise we open the drawer and set the content of the drawer
     dispatch(setIsDrawerOpen(true));
     dispatch(setShowInSideDrawer(name as TDrawerContent));
   };

@@ -21,18 +21,6 @@ const useHighlightText = () => {
     previousDecorations.current[currFile.id] = Array<string>();
   }
 
-  /**
-   * This function highlights searched text in a Monaco editor and removes previous decorations.
-   * @param {string} searchedText - A string representing the text that is being searched for in the
-   * editor.
-   * @param {DrawerContent} showInSideDrawer - `showInSideDrawer` is a parameter of type
-   * `DrawerContent` which is used to determine what content should be displayed in the side drawer. It
-   * is used in the `highlightText` function to check if the side drawer is in search mode or not. If
-   * it is not in search mode
-   * @param {boolean} isDrawerOpen - `isDrawerOpen` is a boolean value that indicates whether the side
-   * drawer is currently open or not.
-   * @returns The function does not have a return statement, so it returns `undefined` by default.
-   */
   const highlightText = (
     searchedText: string,
     showInSideDrawer: DrawerContent,
@@ -40,20 +28,17 @@ const useHighlightText = () => {
   ) => {
     if (!monaco || monaco.editor.getModels().length === 0) return;
 
-    // getting all the matches of the searched text in the current file opened in the editor
+  
     const matches = monaco.editor
       .getModels()[0]
       .findMatches(searchedText, true, false, false, null, false);
 
-    // getting the previouse decorations of the current file
+  
     const previousDecor = previousDecorations.current[currFile.id];
 
-    // first removing all the previouse decorations
+  
     monaco.editor.getModels()[0].deltaDecorations(previousDecor, []);
 
-    // if the searched text is empty or there are no matches
-    // or the side drawer is not open
-    //or the side drawer is not in search mode then we return do nothing
     if (
       searchedText.length === 0 ||
       matches.length === 0 ||
@@ -67,12 +52,12 @@ const useHighlightText = () => {
       return;
     }
 
-    // storing the new decorations so that when we apply another one we can remove this one
+    
     const newDecorations = Array<string>();
 
-    // iterate over all the matches found and apply the decorations
+    
     matches.forEach((match) => {
-      // store the new decorations
+    
       newDecorations.push(
         monaco.editor.getModels()[0].deltaDecorations(
           [],
@@ -101,13 +86,13 @@ const useHighlightText = () => {
       );
     });
 
-    // removing the prev decorations from the ref
+
     previousDecorations.current![currFile.id].splice(
       0,
       previousDecorations.current![currFile.id].length
     );
 
-    // now storing the new decoration in the previousDecorations
+
     for (const decor of newDecorations) {
       previousDecorations.current![currFile.id].push(decor);
     }
