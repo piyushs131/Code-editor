@@ -7,7 +7,7 @@ import { useAppDispatch } from "../../../../Store/store";
 import Button from "../../../UI/Button.component";
 import CollapsibleMenu from "../../../UI/CollapsibleMenu.component";
 
-const CODEVERSE_DEBUG_URL = "https://github.com/vickyguptaa7/Code-Verse";
+const CODEVERSE_DEBUG_URL = "https://github.com/piyushs131/Code-editor";
 // height adjustment is used to adjust the height of the run and debug component to fit the side drawer
 const HIGHT_ADJUSTMENT = 120;
 

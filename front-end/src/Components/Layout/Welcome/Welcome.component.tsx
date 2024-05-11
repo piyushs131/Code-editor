@@ -16,13 +16,15 @@ import { useAppDispatch } from "../../../Store/store";
 import Button from "../../UI/Button.component";
 
 const CODEVERSE_BASIC_URL =
-  "https://github.com/vickyguptaa7/Code-Verse";
+  "https://github.com/piyushs131/Code-editor";
 const CODEVERSE_TIPS_AND_TRICKS_URL =
-  "https://github.com/vickyguptaa7/Code-Verse";
+  "https://github.com/piyushs131/Code-editor";
 
 interface IPROPS {
   height: number;
 }
+
+
 
 const Welcome: React.FC<IPROPS> = ({ height }) => {
   return (
