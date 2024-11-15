@@ -25,6 +25,7 @@ const validateApiKey_middleware_1 = require("./middlewares/validateApiKey.middle
 const CodeExecute_route_1 = __importDefault(require("./routes/CodeExecute.route"));
 const Ping_route_1 = __importDefault(require("./routes/Ping.route"));
 dotenv_1.default.config();
+
 const port = process.env.PORT || 3000;
 const app = (0, express_1.default)();
 const limiter = (0, express_rate_limit_1.rateLimit)({
@@ -32,17 +33,20 @@ const limiter = (0, express_rate_limit_1.rateLimit)({
     max: 15,
     message: { error: "Too many requests, please try again after 1 minutes." },
 });
+
 const speedLimiter = (0, express_slow_down_1.default)({
     windowMs: 60 * 1000,
     delayAfter: 1,
-    delayMs: 200, // begin adding 200ms of delay per request
+    delayMs: 200, 
 });
+
 app.use((0, helmet_1.default)({
     crossOriginEmbedderPolicy: false,
 }));
 app.use((0, cors_1.default)({
     origin: "https://code-verse-app.netlify.app",
 }));
+
 app.use(limiter);
 app.use(speedLimiter);
 app.use(express_1.default.json());
