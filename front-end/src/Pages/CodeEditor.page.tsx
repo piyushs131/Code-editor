@@ -10,11 +10,13 @@ import {
   setShowInBottomPannel,
   toggleIsBottomPannelOpen,
 } from "../Store/reducres/BottomPannel/BottomPannel.reducer";
+
 import { addFileToNavigation } from "../Store/reducres/Navigation/FileNavigation.reducer";
 import {
   setShowInSideDrawer,
   toggleIsDrawerOpen,
 } from "../Store/reducres/SideDrawer/SideDrawer.reducer";
+
 import { useAppDispatch, useAppSelector } from "../Store/store";
 import { mergeClass } from "../library/tailwindMerge/tailwindMerge.lib";
 
@@ -89,7 +91,6 @@ const useShortcutKeys = () => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.repeat) return;
 
-      // toggle Bottom Pannel
       if (e.key === "`" && e.ctrlKey) {
         dispatch(toggleIsBottomPannelOpen());
         dispatch(setShowInBottomPannel("terminal"));
@@ -103,14 +104,12 @@ const useShortcutKeys = () => {
         return;
       }
 
-      // toggle file directory side Drawer
       if (e.key === "p" && (e.metaKey || e.ctrlKey) && e.shiftKey) {
         dispatch(toggleIsDrawerOpen());
         dispatch(setShowInSideDrawer("file"));
         return;
       }
 
-      // open setting
       if (e.key === "," && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
         dispatch(addFileToNavigation({ id: "setting", type: "setting" }));
