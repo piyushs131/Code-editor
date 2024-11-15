@@ -16,7 +16,6 @@ export type TLanguage = "cpp" | "java" | "python" | "c" | "javascript";
 
 export interface ICodeSubmission
   extends yup.InferType<typeof codeSubmissionSchema> {
-  // using interface instead of type generally gives nicer editor feedback
   code: string;
   language: TLanguage;
   input: string;
