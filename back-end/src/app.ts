@@ -55,11 +55,7 @@ app.listen(port, () => {
   console.log("now listending on port", port);
 });
 
-/* This code is scheduling a cron job to run every 14 minutes. The cron job sends a GET request to the
-"/api/ping" endpoint of the server using axios and logs the response data to the console. The
-request includes an "x-api-key" header with the value of the API key stored in the environment
-variable "process.env.API_KEY". This cron job is useful for keeping the server awake and preventing
-it from going to sleep due to inactivity. */
+
 cron.schedule("*/14 * * * *", async () => {
   try {
     const response = await axios({
